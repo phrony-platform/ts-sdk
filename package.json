@@ -1,0 +1,52 @@
+{
+  "name": "@phrony/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript client for the Phrony public API (agents, runs, file library).",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "phrony",
+    "api",
+    "sdk",
+    "agents"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phrony/ts-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phrony/ts-sdk/issues"
+  },
+  "homepage": "https://github.com/phrony/ts-sdk#readme",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "prepublishOnly": "pnpm run build",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint:types": "tsc -p tsconfig.build.json --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
