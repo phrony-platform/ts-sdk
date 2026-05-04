@@ -23,7 +23,10 @@ function normalizeBaseUrl(url: string): string {
 }
 
 export interface PhronyClientOptions {
-  /** API key (`phk_...`). */
+  /**
+   * Workspace API key (`phk_…`) for the public **`/v1`** API. Sent as **`X-API-Key`**.
+   * For **internal** tenant APIs (Bearer, `pwt_…` access tokens), use the Phrony CLI or call those routes with `fetch` yourself; this SDK does not map internal paths.
+   */
   apiKey: string;
   /**
    * API base URL without a trailing slash (e.g. `https://api.phrony.com`).

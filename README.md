@@ -1,6 +1,8 @@
 # @phrony/sdk
 
-TypeScript client for the **Phrony public API**. It wraps `fetch`, sends `X-API-Key` on every request, and provides typed responses for **agents** (start runs, list sessions), **runs** (status, conversation, follow-up messages, SSE stream), and the **file library** (presign, upload, finalize).
+TypeScript client for the **Phrony public API**. It wraps `fetch`, sends **`X-API-Key`** on every request, and provides typed responses for **agents** (start runs, list sessions), **runs** (status, conversation, follow-up messages, SSE stream), and the **file library** (presign, upload, finalize).
+
+**Auth models:** this package is built for **workspace API keys** (`phk_…`) against **`/v1/...`**. **Workspace access tokens** (`pwt_…`) authenticate **`Authorization: Bearer`** on **internal** gateway routes (different URLs and scope model). Use the **[Phrony CLI](https://www.npmjs.com/package/@phrony/cli)** and dashboard **access tokens** for CI on internal APIs; do not substitute an API key where a Bearer access token is required.
 
 **Requirements:** Node **18+** (or any runtime with `fetch`).
 
