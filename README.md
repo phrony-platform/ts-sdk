@@ -6,6 +6,8 @@ TypeScript client for the **Phrony public API**. It wraps `fetch`, sends **`X-AP
 
 **Requirements:** Node **18+** (or any runtime with `fetch`).
 
+**Source:** [github.com/phrony-platform/ts-sdk](https://github.com/phrony-platform/ts-sdk) (MIT).
+
 ## Install
 
 ```bash

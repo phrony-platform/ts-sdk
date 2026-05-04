@@ -1,6 +1,6 @@
 {
   "name": "@phrony/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript client for the Phrony public API (agents, runs, file library).",
   "license": "MIT",
   "type": "module",
@@ -10,18 +10,23 @@
   ],
   "keywords": [
     "phrony",
+    "phrony-sdk",
     "api",
     "sdk",
-    "agents"
+    "typescript",
+    "client",
+    "agents",
+    "runs",
+    "fetch"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/phrony/ts-sdk.git"
+    "url": "git+https://github.com/phrony-platform/ts-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/phrony/ts-sdk/issues"
+    "url": "https://github.com/phrony-platform/ts-sdk/issues"
   },
-  "homepage": "https://github.com/phrony/ts-sdk#readme",
+  "homepage": "https://github.com/phrony-platform/ts-sdk#readme",
   "publishConfig": {
     "access": "public",
     "provenance": true
