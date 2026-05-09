@@ -1,3 +1,10 @@
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/phrony-logo-dark.svg">
+  <img alt="Phrony" src="./assets/phrony-logo-light.svg" width="220">
+</picture>
+</p>
+
 # @phrony/sdk
 
 TypeScript client for the **Phrony public API**. It wraps `fetch`, sends **`X-API-Key`** on every request, and provides typed responses for **agents** (start runs, list sessions), **runs** (status, conversation, follow-up messages, SSE stream), and the **file library** (presign, upload, finalize).
