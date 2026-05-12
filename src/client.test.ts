@@ -4,6 +4,19 @@ import { PhronyAPIError } from "./errors.js";
 import { parseSSEStream } from "./sse.js";
 
 describe("Phrony", () => {
+  it("skipAgentWaitTimer maps to POST /v1/runs/{runId}/skip-agent-wait", async () => {
+    const fetch = vi.fn(async (url: string | URL, init?: RequestInit) => {
+      expect(String(url)).toBe("https://api.example/v1/runs/run-uuid/skip-agent-wait");
+      expect(init?.method).toBe("POST");
+      expect((init?.headers as Record<string, string>)["X-API-Key"]).toBe("phk_test");
+      expect(init?.body).toBeUndefined();
+      return new Response(JSON.stringify({ status: "Running" }), { status: 202 });
+    });
+    const client = new Phrony({ apiKey: "phk_test", baseUrl: "https://api.example", fetch });
+    const out = await client.skipAgentWaitTimer("run-uuid");
+    expect(out.status).toBe("Running");
+  });
+
   it("startRun maps to POST with X-API-Key", async () => {
     const fetch = vi.fn(async (url: string | URL, init?: RequestInit) => {
       expect(String(url)).toContain("/v1/agents/agent-1/runs");

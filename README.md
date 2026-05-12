@@ -69,7 +69,7 @@ function shouldKeepPolling(status: string) {
 
 ## List sessions
 
-`listSessions` calls `GET /v1/agents/{agentId}/sessions` with optional `skip`, `take`, and `versionId`.
+`listSessions` calls `GET /v1/agents/{agentId}/sessions` with optional `skip`, `take`, `versionId`, and `status` (exact session status).
 
 ```ts
 const page = await phrony.listSessions(agentId, { skip: 0, take: 20 });
@@ -117,6 +117,14 @@ await phrony.sendRunMessage(
 ```
 
 For a user task (approval, option pick, and so on), add fields like `userTaskId`, `approved`, or `selectedOptionId` in the same object.
+
+## Skip a phrony_wait timer
+
+When polling shows **`WaitingForTimer`** (the agent used **phrony_wait** and the scheduled time has not passed), **`skipAgentWaitTimer`** calls **`POST /v1/runs/{runId}/skip-agent-wait`**. The response is **202 Accepted** with the same JSON shape as **`sendRunMessage`** (typically `{ "status": "Running" }`). The actor recorded for audit is the **API key** used on the request.
+
+```ts
+await phrony.skipAgentWaitTimer(runId);
+```
 
 ## Subscribe to the run stream (SSE)
 

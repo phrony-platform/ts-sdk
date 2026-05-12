@@ -55,6 +55,8 @@ export interface ListSessionsQuery {
   skip?: number;
   take?: number;
   versionId?: string;
+  /** Exact session projection status (e.g. `Running`, `Completed`, `WaitingForTimer`). */
+  status?: string;
 }
 
 export type ConversationQuery = {

@@ -121,6 +121,9 @@ export class Phrony {
     if (query?.versionId) {
       u.searchParams.set("versionId", query.versionId);
     }
+    if (query?.status) {
+      u.searchParams.set("status", query.status);
+    }
     return this.requestJson<ListSessionsResponse>("GET", u.pathname + u.search);
   }
 
@@ -160,6 +163,17 @@ export class Phrony {
       "POST",
       `/v1/runs/${runId}/${pathSeg}`,
       { body: full },
+    );
+  }
+
+  /**
+   * End a **phrony_wait** timer early when the run is **`WaitingForTimer`**.
+   * `POST /v1/runs/{runId}/skip-agent-wait` — **202 Accepted** on success (same shape as {@link sendRunMessage}).
+   */
+  skipAgentWaitTimer(runId: string): Promise<AcceptMessageResponse> {
+    return this.requestJson<AcceptMessageResponse>(
+      "POST",
+      `/v1/runs/${runId}/skip-agent-wait`,
     );
   }
 

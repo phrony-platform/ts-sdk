@@ -1,6 +1,6 @@
 {
   "name": "@phrony/sdk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "TypeScript client for the Phrony public API (agents, runs, file library).",
   "license": "MIT",
   "type": "module",
